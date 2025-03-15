@@ -1,6 +1,6 @@
 ## Mermaid
 
-### **1. Basics**  
+## **Basics**  
 
 #### **What is Mermaid?**  
 Mermaid is a JavaScript-based diagramming tool that allows creating various types of charts using text-based syntax.  
@@ -18,9 +18,32 @@ graph TD;
     B -->|No| D[Continue];  
 ```
 
+#### **Diagram Types**
+
+| Diagram Type                         | Description                                                                                                                                                                                                 | Purpose                                                                                                                                                                                                 | Version Introduced | Platform Support                                                                                                                                                                                                                                                                                                                                                 |
+|--------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Flowchart**                        | Visual representation of processes or workflows using nodes (geometric shapes) and edges (arrows or lines). citeturn0search7 | To illustrate the sequence of steps in a process or system.                                                                                                                                             | 0.1                | Supported by platforms like GitHub, GitLab, Azure DevOps (version 8.13.9 and above), Obsidian (depending on version). citeturn0search6                                                                                                                                                                                                                         |
+| **Sequence Diagram**                 | Depicts interactions between entities over time, showing the sequence of messages exchanged. citeturn0search0 | To model and document the flow of messages or events in a system, especially in software engineering.                                                                                                   | 0.1                | Supported by platforms like GitHub, GitLab, Azure DevOps (version 8.13.9 and above), Obsidian (depending on version). citeturn0search6                                                                                                                                                                                                                         |
+| **Gantt Chart**                      | Illustrates project schedules, showing tasks, durations, and dependencies. citeturn0search0 | To plan and track project timelines and task progress.                                                                                                                                                  | 0.1                | Supported by platforms like GitHub, GitLab, Azure DevOps (version 8.13.9 and above), Obsidian (depending on version). citeturn0search6                                                                                                                                                                                                                         |
+| **Class Diagram**                    | Represents the structure of classes in a system, including their attributes and relationships. citeturn0search9 | To model the static structure of object-oriented systems.                                                                                                                                               | 0.1                | Supported by platforms like GitHub, GitLab, Obsidian (depending on version). citeturn0search8                                                                                                                                                                                                                                                                |
+| **State Diagram**                    | Shows the different states of an entity and the transitions between those states. citeturn0search0 | To describe the behavior of systems by modeling their states and transitions.                                                                                                                           | 0.1                | Supported by platforms like GitHub, GitLab, Azure DevOps (version 8.13.9 and above), Obsidian (depending on version). citeturn0search6                                                                                                                                                                                                                         |
+| **Entity Relationship Diagram (ERD)**| Illustrates entities within a system and their relationships. citeturn0search0 | To design and model databases by representing entities and their interconnections.                                                                                                                      | 8.6.0 (Experimental) | Supported by platforms like GitHub, GitLab, Obsidian (depending on version). citeturn0search8                                                                                                                                                                                                                                                                |
+| **User Journey Diagram**             | Maps out the steps a user takes to achieve a specific goal within a system. citeturn0search0 | To understand and optimize user experiences by visualizing user interactions and touchpoints.                                                                                                           | 8.9.0              | Supported by platforms like GitHub, GitLab, Azure DevOps (version 8.13.9 and above), Obsidian (depending on version). citeturn0search6                                                                                                                                                                                                                         |
+| **Pie Chart**                        | Displays data in a circular graph divided into slices to illustrate numerical proportions. citeturn0search0 | To represent the relative sizes of data categories in a visually appealing manner.                                                                                                                      | 8.5.0              | Supported by platforms like GitHub, GitLab, Azure DevOps (version 8.13.9 and above), Obsidian (depending on version). citeturn0search6                                                                                                                                                                                                                         |
+| **Git Graph**                        | Visualizes Git repository structures, including commits, branches, and merges. citeturn0search0 | To provide a clear representation of version control histories and branching strategies.                                                                                                                | 8.8.0              | Supported by platforms like GitHub, GitLab, Obsidian (depending on version). citeturn0search8                                                                                                                                                                                                                                                                |
+| **Requirement Diagram**              | Represents requirements and their relationships in a system. citeturn0search0 | To document and track requirements and their interdependencies in project management.                                                                                                                   | 8.9.0              | Supported by platforms like GitHub, GitLab, Azure DevOps (version 8.13.9 and above), Obsidian (depending on version). citeturn0search6                                                                                                                                                                                                                         |
+| **Mind Map**                         | Visualizes hierarchical information, showing relationships between concepts. citeturn0search0 | To brainstorm, organize, and structure ideas in a non-linear format.                                                                                                                                    | 9.0.0 (Experimental) | Support varies; not all platforms have integrated this experimental feature. For example, GitHub's native Mermaid support does not include Mind Maps. citeturn0search8                                                                                                                                                                                          |
+| **Timeline**                         | Displays events in chronological order along a linear timeline. citeturn0search0 | To represent historical events, project milestones, or any sequential occurrences over time.                                                                                                            | 9.1.0 (Experimental) | Support varies; not all platforms have integrated this experimental feature. For example, Obsidian's support for Timelines depends on the Mermaid version it utilizes. citeturn0search8                                                                                                                                                                        |
+| **Quadrant Chart**                   | Divides data points into four quadrants based on two axes to analyze their distribution. citeturn0search0 | To assess and categorize data based on two variables, often used in strategic analysis.                                                                                                                 | 9.2.0 (Experimental) | Support varies; not all platforms have integrated this experimental feature. Users have expressed interest in having this feature supported in platforms like Obsidian. citeturn0search8                                                                                                                                 |
+
+*Note: "Experimental" indicates that the feature is in development and may not be fully stable or supported across all platforms.*
+
+ 
 ---
 
-### **2. Flowcharts**  
+## Diagrams
+
+### **Flowcharts**  
 
 #### **Nodes and Links**  
 - Nodes represent elements in the flowchart.  
@@ -76,7 +99,7 @@ graph TD;
 
 ---
 
-### **3. Sequence Diagrams**  
+### **Sequence Diagrams**  
 
 #### **Participants**  
 - Define entities in a sequence diagram using `participant`.  
@@ -135,7 +158,7 @@ sequenceDiagram
 
 ---
 
-### **4. Gantt Charts**  
+### **Gantt Charts**  
 
 #### **Tasks and Dependencies**  
 - Gantt charts define project tasks with dependencies and timelines.  
@@ -173,7 +196,7 @@ gantt
 
 ---
 
-### **5. Pie Charts**  
+### **Pie Charts**  
 
 #### **Defining Pie Charts**  
 - Format:  
@@ -195,7 +218,7 @@ pie
 
 ---
 
-### **6. Class Diagrams**  
+### **Class Diagrams**  
 
 #### **Defining Classes and Relationships**  
 - Classes are defined using `classDiagram`.  
@@ -240,7 +263,7 @@ classDiagram
 
 ---
 
-### **7. Entity Relationship Diagrams (ERD)**  
+### **Entity Relationship Diagrams (ERD)**  
 
 #### **Entities and Relationships**  
 - `erDiagram` → Defines an ER diagram.  
@@ -272,7 +295,7 @@ erDiagram
 
 ---
 
-### **8. State Diagrams**  
+### **State Diagrams**  
 
 #### **States and Transitions**  
 - `stateDiagram` → Defines a state diagram.  
@@ -304,7 +327,7 @@ stateDiagram
 
 ---
 
-### **9. User Journey Diagrams**  
+### **User Journey Diagrams**  
 
 #### **Defining Steps**  
 - `journey` → Defines a user journey diagram.  
@@ -330,7 +353,7 @@ journey
 
 ---
 
-### **10. Mind Maps**  
+### **Mind Maps**  
 
 #### **Structure and Formatting**  
 - `mindmap` → Defines a mind map.  
@@ -366,7 +389,674 @@ mindmap
 
 ---
 
+### **Git Graphs**
 
+**Git graphs** in Mermaid.js provide a visual representation of Git repositories, illustrating commits, branches, merges, and more. This is particularly useful for documenting workflows and understanding project histories.
+
+#### **Defining a Git Graph**
+
+- **Initialization**: Begin with the `gitGraph` keyword to specify the diagram type.
+
+- **Commits**: Use the `commit` keyword to represent individual commits.
+
+**Example:**
+
+```mermaid
+gitGraph
+    commit id: "Initial Commit"
+    commit id: "Second Commit"
+    commit id: "Third Commit"
+```
+
+
+This will render a linear sequence of commits on the default `main` branch.
+
+#### **Branches**
+
+- **Creating a Branch**: Use the `branch` keyword followed by the branch name. This also checks out the new branch.
+
+- **Switching Branches**: Use the `checkout` keyword followed by the branch name to switch between branches.
+
+**Example:**
+
+```mermaid
+gitGraph
+    commit id: "Initial Commit"
+    branch develop
+    commit id: "Develop Commit"
+    checkout main
+    commit id: "Main Commit"
+```
+
+
+In this example, a `develop` branch is created and a commit is made on it. Then, we switch back to the `main` branch and make another commit.
+
+#### **Merging Branches**
+
+- **Merging**: Use the `merge` keyword followed by the branch name to merge the specified branch into the current branch.
+
+**Example:**
+
+```mermaid
+gitGraph
+    commit id: "Initial Commit"
+    branch feature
+    commit id: "Feature Commit"
+    checkout main
+    merge feature
+```
+
+
+Here, the `feature` branch is merged into the `main` branch.
+
+#### **Cherry-Picking Commits**
+
+- **Cherry-Picking**: Use the `cherry-pick` keyword followed by the commit ID to apply a specific commit from another branch onto the current branch.
+
+**Example:**
+
+```mermaid
+gitGraph
+    commit id: "Initial Commit"
+    branch feature
+    commit id: "Feature Commit"
+    checkout main
+    cherry-pick id: "Feature Commit"
+```
+
+
+This applies the `Feature Commit` from the `feature` branch onto the `main` branch without merging the entire branch.
+
+#### **Customizing Commits**
+
+- **Commit Types**: Specify commit types to differentiate them visually:
+
+  - `NORMAL`: Default commit type, represented by a solid circle.
+
+  - `REVERSE`: Indicates a reverse commit, shown as a crossed circle.
+
+  - `HIGHLIGHT`: Highlights a particular commit, displayed as a filled rectangle.
+
+**Example:**
+
+```mermaid
+gitGraph
+    commit id: "Normal Commit"
+    commit id: "Reverse Commit" type: REVERSE
+    commit id: "Highlight Commit" type: HIGHLIGHT
+```
+
+
+This will render commits with different visual representations based on their types.
+
+For more detailed information and advanced configurations, refer to the [Mermaid.js GitGraph documentation](https://mermaid.js.org/syntax/gitgraph.html). 
+
+---
+
+#### **Customization Options**  
+- **Multiple Sections** → Organizes events.  
+- **Date Formats** → Uses YYYY-MM-DD format.  
+- **Sorting** → Events appear in chronological order.  
+
+This timeline represents the different phases of a project, marking key milestones.
+
+---
+
+### **Requirement Diagram**
+
+#### **Overview**
+- **Purpose**: Represents system requirements and their relationships.  
+- **Use Cases**: System design, requirement tracking, verification, and validation.  
+
+---
+
+#### **Defining Requirements**
+- `requirement <name> {}` → Defines a requirement block.  
+- Attributes:  
+  - **`id`** → Unique identifier.  
+  - **`text`** → Description of the requirement.  
+  - **`risk`** → Risk level (`Low`, `Medium`, `High`).  
+  - **`verifymethod`** → How it is verified (`Analysis`, `Inspection`, `Test`, `Demonstration`).  
+
+**Example:**
+```mermaid
+requirementDiagram
+  requirement user_auth {
+      id: R1
+      text: "User must be authenticated"
+      risk: High
+      verifymethod: Test
+  }
+```
+
+---
+
+#### **Defining Elements**
+- `element <name> {}` → Represents system components that fulfill requirements.  
+- Attributes:  
+  - **`type`** → Type of element (e.g., `SoftwareComponent`, `HardwareComponent`).  
+  - **`docref`** → Associated documentation.  
+
+**Example:**
+```mermaid
+requirementDiagram
+  element login_system {
+      type: SoftwareComponent
+      docref: "auth_design_spec.pdf"
+  }
+```
+
+---
+
+#### **Relationships**
+| Relationship   | Description |
+|---------------|------------|
+| `-satisfies->` | Component satisfies a requirement |
+| `-verifies->`  | Ensures requirement is met |
+| `-contains->`  | Groups related requirements |
+| `-traces->`    | Tracks a requirement across development |
+| `-refines->`   | A requirement refines another |
+| `-derives->`   | A requirement derives from another |
+
+**Example:**
+```mermaid
+requirementDiagram
+  login_system -satisfies-> user_auth
+```
+
+---
+
+#### **Complete Example**
+```mermaid
+requirementDiagram
+  requirement user_auth {
+      id: R1
+      text: "User must be authenticated"
+      risk: High
+      verifymethod: Test
+  }
+  element login_system {
+      type: SoftwareComponent
+      docref: "auth_design_spec.pdf"
+  }
+  login_system -satisfies-> user_auth
+```
+
+This example defines an authentication requirement (`user_auth`), a system component (`login_system`), and shows that `login_system` satisfies `user_auth`.
+
+---
+
+### **Timeline Diagram**  
+
+#### **Overview**  
+- **Purpose**: Represents events in a chronological sequence.  
+- **Use Cases**: Project management, historical timelines, event tracking.  
+
+---
+
+#### **Defining a Timeline**  
+- `timeline` → Starts the diagram.  
+- `title` → Adds a title to the timeline.  
+- `section <name>` → Groups events under a section.  
+- `date: description` → Specifies an event with a date and description.  
+
+**Example:**  
+```mermaid
+timeline
+    title Project Development Timeline
+    section Planning
+      2024-01-01: Project Kickoff
+      2024-02-15: Requirement Analysis Completed
+    section Development
+      2024-03-01: Prototype Created
+      2024-06-30: Beta Release
+    section Deployment
+      2024-09-01: Public Release
+```
+
+---
+
+#### **Customization Options**  
+- **Multiple Sections** → Organizes events.  
+- **Date Formats** → Uses YYYY-MM-DD format.  
+- **Sorting** → Events appear in chronological order.  
+
+This timeline represents the different phases of a project, marking key milestones.
+
+---
+
+
+### **Quadrant Chart**  
+
+#### **Overview**  
+- **Purpose**: Displays data points in four quadrants based on two variables.  
+- **Use Cases**: SWOT analysis, risk assessment, performance evaluation.  
+
+---
+
+#### **Defining a Quadrant Chart**  
+- `quadrantChart` → Starts the diagram.  
+- `title` → Adds a title to the chart.  
+- `x-axis "Label1" → "Label2"` → Defines the horizontal axis labels.  
+- `y-axis "Label1" → "Label2"` → Defines the vertical axis labels.  
+- `("Label", x, y)` → Plots a data point at (x, y).  
+
+**Example:**  
+```mermaid
+quadrantChart
+    title Risk vs Impact Analysis
+    x-axis Low → High
+    y-axis Low → High
+    ("Low Risk, Low Impact", 1, 1)
+    ("High Risk, Low Impact", 3, 1)
+    ("Low Risk, High Impact", 1, 3)
+    ("High Risk, High Impact", 3, 3)
+```
+
+---
+
+#### **Customization Options**  
+- **Adjusting Axes** → Change labels to fit the analysis.  
+- **Multiple Points** → Add various data points.  
+- **Scaling** → X and Y values determine placement within the quadrants.  
+
+This chart categorizes data into four quadrants based on defined criteria.
+
+---
+
+
+### **XY Chart**  
+
+#### **Overview**  
+- **Purpose**: Plots points on a 2D coordinate system using X and Y values.  
+- **Use Cases**: Data visualization, performance analysis, correlation studies.  
+
+---
+
+#### **Defining an XY Chart**  
+Mermaid.js **does not support** a direct XY chart, but you can use a **Quadrant Chart** as an alternative.  
+
+- `quadrantChart` → Plots points on an XY plane.  
+- `x-axis "Label1" → "Label2"` → Defines horizontal axis labels.  
+- `y-axis "Label1" → "Label2"` → Defines vertical axis labels.  
+- `("Label", x, y)` → Plots a data point at (x, y).  
+
+**Example:**  
+```mermaid
+quadrantChart
+    title Sales Performance Analysis
+    x-axis Low Revenue → High Revenue
+    y-axis Low Growth → High Growth
+    ("Product A", 2, 3)
+    ("Product B", 4, 5)
+    ("Product C", 1, 2)
+    ("Product D", 3, 4)
+```
+
+---
+
+#### **Customization Options**  
+- **Change Axes Labels** → Modify `x-axis` and `y-axis` to fit your analysis.  
+- **Multiple Data Points** → Add as many points as needed.  
+- **Scaling** → Adjust X and Y values for accurate positioning.  
+
+Since Mermaid.js does not natively support an **XY scatter plot**, consider using tools like **Matplotlib (Python) or Chart.js (JavaScript)** for detailed data plotting.
+
+---
+
+### **Sankey Diagram**  
+
+#### **Overview**  
+- **Purpose**: Represents flow of quantities between different entities.  
+- **Use Cases**: Visualizing resource distribution, energy flow, budget allocation.  
+
+---
+
+#### **Defining a Sankey Diagram**  
+- `sankey-diagram` → Starts the diagram.  
+- `Node1[Value] --> Node2[Value]` → Defines flow between nodes.  
+
+**Example:**  
+```mermaid
+sankey-diagram
+    title Energy Distribution
+    Source[100] --> Production[80]
+    Source[100] --> Losses[20]
+    Production[80] --> Industry[50]
+    Production[80] --> Residential[30]
+```
+
+---
+
+#### **Customization Options**  
+- **Adjusting Flow Values** → Modify numeric values for accurate representation.  
+- **Multiple Flows** → Add multiple paths between nodes.  
+- **Titles** → Use `title` to label the diagram.  
+
+This example represents energy flow from a **source** to **production, industry, and residential sectors** while accounting for losses.
+
+---
+
+### **Gantt Diagram**  
+
+#### **Overview**  
+- **Purpose**: Visualizes project tasks, timelines, and dependencies.  
+- **Use Cases**: Project planning, scheduling, resource allocation.  
+
+---
+
+#### **Defining a Gantt Chart**  
+- `gantt` → Starts the diagram.  
+- `title` → Adds a title to the chart.  
+- `dateFormat YYYY-MM-DD` → Defines the date format.  
+- `section <name>` → Groups tasks.  
+- `Task Name: type, start_date, duration` → Defines a task.  
+
+**Example:**  
+```mermaid
+gantt
+    title Software Development Timeline
+    dateFormat  YYYY-MM-DD
+    section Planning
+      Requirement Analysis: done, 2024-01-01, 10d
+      Design Phase: active, 2024-01-12, 15d
+    section Development
+      Backend Development: 2024-02-01, 20d
+      Frontend Development: 2024-02-15, 25d
+    section Testing & Deployment
+      Testing: 2024-03-10, 10d
+      Deployment: 2024-03-20, 5d
+```
+
+---
+
+#### **Customization Options**  
+| **Option**     | **Description** |
+|---------------|---------------|
+| `done`        | Task is completed. |
+| `active`      | Task is ongoing. |
+| `crit`        | Marks a critical task. |
+| `milestone`   | Represents a milestone (e.g., `Project Launch: milestone, 2024-04-01, 1d`). |
+
+This Gantt chart helps track **project phases**, showing durations and dependencies.
+
+---
+
+### **Pie Chart**  
+
+#### **Overview**  
+- **Purpose**: Represents data distribution as a circular chart.  
+- **Use Cases**: Percentage breakdowns, category comparisons, resource allocation.  
+
+---
+
+#### **Defining a Pie Chart**  
+- `pie` → Starts the diagram.  
+- `title` → Adds a title to the chart.  
+- `<value>: <label>` → Defines a segment with its value and label.  
+
+**Example:**  
+```mermaid
+pie
+    title Budget Allocation
+    40: Development
+    25: Marketing
+    20: Operations
+    15: Research
+```
+
+---
+
+#### **Customization Options**  
+- **Adjusting Values** → Modify numbers to reflect proportions.  
+- **Titles** → Use `title` to specify the chart’s purpose.  
+- **Multiple Segments** → Add as many as needed.  
+
+This pie chart shows a **budget allocation breakdown** into **development, marketing, operations, and research**.
+
+---
+
+### **Kanban Diagram**  
+
+#### **Overview**  
+- **Purpose**: Visualizes task progress across different stages in a workflow.  
+- **Use Cases**: Task management, Agile development, project tracking.  
+
+---
+
+#### **Defining a Kanban Board**  
+- `kanban` → Starts the diagram.  
+- `title` → Adds a title to the board.  
+- `column <name>` → Defines a workflow stage.  
+- `card <Task>` → Adds a task under a column.  
+
+**Example:**  
+```mermaid
+kanban
+    title Project Workflow
+    column Backlog
+        card Gather Requirements
+        card Research Technologies
+    column In Progress
+        card Develop UI
+        card Backend API
+    column Review
+        card Code Review
+    column Done
+        card Deployment
+```
+
+---
+
+#### **Customization Options**  
+| **Option**    | **Description** |
+|--------------|---------------|
+| `title`      | Sets the board’s title. |
+| `column`     | Defines workflow stages. |
+| `card`       | Represents tasks inside a column. |
+
+This **Kanban board** tracks tasks from **Backlog** to **Completion**, useful for Agile workflows.
+
+---
+
+### **Architecture Diagram**  
+
+#### **Overview**  
+- **Purpose**: Represents system components and their relationships.  
+- **Use Cases**: Software architecture, cloud infrastructure, microservices.  
+
+---
+
+#### **Defining an Architecture Diagram**  
+Mermaid.js **does not natively support** architecture diagrams. However, **flowcharts** and **graphs** can represent architecture visually.  
+
+- `graph TD` → Defines a top-down architecture.  
+- `graph LR` → Defines a left-to-right architecture.  
+- `[Component]` → Represents a system component.  
+- `-->` → Defines connections between components.  
+
+**Example:**  
+```mermaid
+graph TD
+    Client[User] -->|Requests| LoadBalancer
+    LoadBalancer -->|Routes| WebServer1
+    LoadBalancer -->|Routes| WebServer2
+    WebServer1 -->|Processes| Database
+    WebServer2 -->|Processes| Database
+    Database -->|Stores| Storage
+```
+
+---
+
+#### **Customization Options**  
+| **Option**     | **Description** |
+|---------------|---------------|
+| `graph TD/LR` | Sets the diagram direction (Top-Down or Left-Right). |
+| `-->`         | Defines relationships between components. |
+| `-->|Label|`  | Adds labels to connections. |
+
+This **architecture diagram** models a **web system with load balancing**, useful for **infrastructure planning**.
+
+---
+
+### **Block Diagram**  
+
+#### **Overview**  
+- **Purpose**: Represents system components as blocks and their interactions.  
+- **Use Cases**: System design, hardware architecture, data flow visualization.  
+
+---
+
+#### **Defining a Block Diagram**  
+Mermaid.js **does not have a built-in block diagram**, but **flowcharts** can represent blocks effectively.  
+
+- `graph TD` → Defines a **top-down** block structure.  
+- `graph LR` → Defines a **left-to-right** block structure.  
+- `[Block]` → Represents a **system component**.  
+- `-->` → Defines **connections between blocks**.  
+
+**Example:**  
+```mermaid
+graph LR
+    Input[User Input] --> Processing[Processing Unit]
+    Processing --> Storage[Data Storage]
+    Processing --> Output[Display Output]
+```
+
+---
+
+### **Customization**
+
+#### **Customization Options**  
+| **Option**     | **Description** |
+|---------------|---------------|
+| `graph TD/LR` | Sets the **diagram direction** (Top-Down or Left-Right). |
+| `[Component]` | Represents a **block (system component)**. |
+| `-->`         | Defines **relationships between blocks**. |
+
+This **block diagram** represents **data flow from input to processing, storage, and output**.
+
+---
+
+### **Packet Diagram Cheat Sheet**  
+
+#### **Overview**  
+- **Purpose**: Represents network packet structure, including headers and data.  
+- **Use Cases**: Network protocol analysis, packet format visualization.  
+
+---
+
+#### **Defining a Packet Diagram**  
+Mermaid.js **does not have a built-in packet diagram**, but **flowcharts** or **sequence diagrams** can represent packet structures.  
+
+- `graph TD` → Defines a **top-down** packet structure.  
+- `graph LR` → Defines a **left-to-right** packet structure.  
+- `[Header] --> [Payload] --> [Checksum]` → Represents packet sections.  
+
+**Example (Flowchart Representation):**  
+```mermaid
+graph LR
+    Start[Packet] --> Header[Header]
+    Header --> Payload[Payload/Data]
+    Payload --> Checksum[Checksum]
+    Checksum --> End[End of Packet]
+```
+
+---
+
+#### **Customization Options**  
+| **Option**     | **Description** |
+|---------------|---------------|
+| `graph TD/LR` | Sets the **diagram direction** (Top-Down or Left-Right). |
+| `[Component]` | Represents **packet sections**. |
+| `-->`         | Defines **packet flow**. |
+
+This **packet diagram** visualizes **network packet structure**, useful for **protocol analysis**.
+
+---
+
+## **Customizations**
+
+Mermaid.js offers a variety of customization options to enhance the appearance and accessibility of your diagrams.
+
+#### **Themes and Colors**
+
+Mermaid provides several built-in themes:
+
+- **Default**: The standard Mermaid theme.
+- **Neutral**: Ideal for black and white documents intended for printing.
+- **Dark**: Suitable for dark-mode interfaces.
+- **Forest**: Features shades of green.
+- **Base**: A customizable theme that serves as a foundation for creating custom themes.
+
+To apply a theme globally, use the `initialize` method:
+
+```javascript
+mermaid.initialize({
+  theme: 'forest',
+});
+```
+
+
+For diagram-specific themes, utilize the `init` directive within your diagram definition:
+
+```mermaid
+%%{init: {'theme': 'dark'}}%%
+graph TD;
+    A-->B;
+    B-->C;
+    C-->A;
+```
+
+
+To create a custom theme, modify the `themeVariables` within the `base` theme:
+
+```javascript
+mermaid.initialize({
+  theme: 'base',
+  themeVariables: {
+    primaryColor: '#ffcc00',
+    primaryTextColor: '#000000',
+    lineColor: '#ff0000',
+  },
+});
+```
+
+
+This approach allows you to define specific colors for various diagram elements. citeturn0search0
+
+#### **Accessibility**
+
+Mermaid.js incorporates features to enhance diagram accessibility:
+
+- **`accTitle`**: Defines an accessible title for the diagram.
+- **`accDescr`**: Provides a description for assistive technologies.
+
+Example:
+
+```mermaid
+graph TD;
+    accTitle: Flowchart of Process A
+    accDescr: This flowchart illustrates the steps in Process A.
+    A[Start] --> B{Decision};
+    B -->|Yes| C[Proceed];
+    B -->|No| D[Stop];
+```
+
+
+These attributes add `<title>` and `<desc>` elements to the SVG output, improving compatibility with screen readers. citeturn0search1
+
+#### **Exporting Diagrams**
+
+Mermaid.js enables exporting diagrams in various formats:
+
+- **PNG**: A raster image format.
+- **SVG**: A scalable vector format.
+- **PDF**: A portable document format.
+
+Using the Mermaid Live Editor, you can export diagrams by selecting the desired format from the export options. citeturn0search14
+
+By leveraging these customization options, you can tailor Mermaid.js diagrams to meet specific aesthetic and accessibility requirements. 
 
 ---
 ---
