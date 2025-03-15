@@ -1,3 +1,377 @@
+## Mermaid
+
+### **1. Basics**  
+
+#### **What is Mermaid?**  
+Mermaid is a JavaScript-based diagramming tool that allows creating various types of charts using text-based syntax.  
+
+#### **Syntax Overview**  
+- Every diagram starts with `%%{init}` (optional) for configuration.  
+- The first line specifies the diagram type.  
+- Nodes and relationships are defined with simple text-based syntax.  
+
+**Example:**  
+```mermaid
+graph TD;  
+    A[Start] --> B{Decision};  
+    B -->|Yes| C[End];  
+    B -->|No| D[Continue];  
+```
+
+---
+
+### **2. Flowcharts**  
+
+#### **Nodes and Links**  
+- Nodes represent elements in the flowchart.  
+- Links connect nodes using arrows (`-->`, `--x`, `-.->`).  
+
+**Example:**  
+```mermaid
+graph TD;  
+    A[Start] --> B{Decision};  
+    B -->|Yes| C[Success];  
+    B -->|No| D[Failure];  
+```
+
+#### **Direction & Layout**  
+- `TD` → Top to Bottom  
+- `LR` → Left to Right  
+- `BT` → Bottom to Top  
+- `RL` → Right to Left  
+
+**Example:**  
+```mermaid
+graph LR;  
+    A --> B;  
+    B --> C;  
+```
+
+#### **Styling Nodes and Edges**  
+- Nodes can have styles (`fill`, `stroke`, `font-size`).  
+- Edges can have text and styles.  
+
+**Example:**  
+```mermaid
+graph TD;  
+    A[Start] -->|Proceed| B{Decision};  
+    B -->|Yes| C[Approved];  
+    B -->|No| D[Rejected];  
+    style A fill:#ffcc00,stroke:#333,stroke-width:2px;  
+    style C fill:#00ff00,stroke:#000;  
+```
+
+#### **Subgraphs**  
+- Group nodes into clusters using `subgraph`.  
+
+**Example:**  
+```mermaid
+graph TD;  
+    subgraph Group 1  
+        A --> B;  
+        B --> C;  
+    end  
+    C --> D;  
+```
+
+---
+
+### **3. Sequence Diagrams**  
+
+#### **Participants**  
+- Define entities in a sequence diagram using `participant`.  
+
+**Example:**  
+```mermaid
+sequenceDiagram  
+    participant A as User  
+    participant B as Server  
+    A->>B: Request Data  
+    B-->>A: Response  
+```
+
+#### **Messages**  
+- `->>` → Solid arrow (synchronous)  
+- `-->>` → Dashed arrow (asynchronous)  
+- `->>` with `+` → Activation  
+
+**Example:**  
+```mermaid
+sequenceDiagram  
+    A->>+B: Process Start  
+    B-->>-A: Acknowledgment  
+```
+
+#### **Activation & Deactivation**  
+- `+` → Activate a participant  
+- `-` → Deactivate a participant  
+
+**Example:**  
+```mermaid
+sequenceDiagram  
+    participant A  
+    participant B  
+    A->>+B: Start  
+    B-->>-A: Done  
+```
+
+#### **Loops, Alternatives, and Conditions**  
+- `loop` → Repeats actions  
+- `alt` → Alternatives (if-else)  
+- `opt` → Optional block  
+
+**Example:**  
+```mermaid
+sequenceDiagram  
+    participant User  
+    participant System  
+    User->>System: Login Attempt  
+    alt Successful  
+        System-->>User: Welcome  
+    else Failed  
+        System-->>User: Retry  
+    end  
+```
+
+---
+
+### **4. Gantt Charts**  
+
+#### **Tasks and Dependencies**  
+- Gantt charts define project tasks with dependencies and timelines.  
+- Format:  
+  - `title` → Sets the chart title.  
+  - `dateFormat` → Defines the date format.  
+  - `section` → Groups tasks.  
+
+**Example:**  
+```mermaid
+gantt  
+    title Project Timeline  
+    dateFormat YYYY-MM-DD  
+    section Planning  
+    Task A :a1, 2025-03-01, 5d  
+    Task B :after a1, 3d  
+    section Development  
+    Task C :a2, 2025-03-10, 7d  
+    Task D :after a2, 4d  
+```
+
+#### **Styling and Customization**  
+- `color` → Change task colors.  
+- `done` → Mark task completion.  
+
+**Example:**  
+```mermaid
+gantt  
+    title Development Schedule  
+    dateFormat YYYY-MM-DD  
+    section Phase 1  
+    Task 1 :done, 2025-03-01, 4d  
+    Task 2 :active, 2025-03-05, 6d  
+```
+
+---
+
+### **5. Pie Charts**  
+
+#### **Defining Pie Charts**  
+- Format:  
+  - `pie` → Defines a pie chart.  
+  - Data values are written as `label: value`.  
+
+**Example:**  
+```mermaid
+pie  
+    title Market Share  
+    "Company A" : 40  
+    "Company B" : 25  
+    "Company C" : 35  
+```
+
+#### **Customization**  
+- Titles can be added using `title`.  
+- Values should be numerical, representing proportions.  
+
+---
+
+### **6. Class Diagrams**  
+
+#### **Defining Classes and Relationships**  
+- Classes are defined using `classDiagram`.  
+- Syntax:  
+  - `ClassName` → Defines a class.  
+  - `+` (public), `-` (private), `#` (protected).  
+  - `ClassA --|> ClassB` → Inheritance.  
+  - `ClassA -- ClassB` → Association.  
+  - `ClassA o-- ClassB` → Composition.  
+  - `ClassA *-- ClassB` → Aggregation.  
+
+**Example:**  
+```mermaid
+classDiagram  
+    class Animal {  
+        +String name  
+        +eat()  
+    }  
+    class Dog {  
+        +bark()  
+    }  
+    Animal <|-- Dog  
+```
+
+#### **Inheritance and Composition**  
+- `--|>` → Inheritance  
+- `*--` → Composition  
+- `o--` → Aggregation  
+
+**Example:**  
+```mermaid
+classDiagram  
+    class Car {  
+        +engine: Engine  
+    }  
+    class Engine {  
+        +start()  
+    }  
+    Car *-- Engine  
+```
+
+
+---
+
+### **7. Entity Relationship Diagrams (ERD)**  
+
+#### **Entities and Relationships**  
+- `erDiagram` → Defines an ER diagram.  
+- Entities are written as `ENTITY_NAME {}`.  
+- Relationships:  
+  - `||--||` → One-to-One  
+  - `||--o{` → One-to-Many  
+  - `}o--o{` → Many-to-Many  
+
+**Example:**  
+```mermaid
+erDiagram  
+    CUSTOMER ||--o{ ORDER : places  
+    ORDER ||--|{ ITEM : contains  
+    CUSTOMER {  
+        string name  
+        int id  
+    }  
+    ORDER {  
+        int id  
+        date orderDate  
+    }  
+    ITEM {  
+        int id  
+        string name  
+        float price  
+    }  
+```
+
+---
+
+### **8. State Diagrams**  
+
+#### **States and Transitions**  
+- `stateDiagram` → Defines a state diagram.  
+- States are written as `StateName`.  
+- Transitions use `-->`.  
+
+**Example:**  
+```mermaid
+stateDiagram  
+    [*] --> Idle  
+    Idle --> Running : Start  
+    Running --> Stopped : Stop  
+    Stopped --> Idle : Reset  
+```
+
+#### **Styling and Customization**  
+- Use `[ ]` for the start and end states.  
+- Arrows represent transitions.  
+- Labels describe transitions.  
+
+**Example:**  
+```mermaid
+stateDiagram  
+    [*] --> Locked  
+    Locked --> Unlocked : Enter Code  
+    Unlocked --> Locked : Close  
+    Unlocked --> [*] : Exit  
+```
+
+---
+
+### **9. User Journey Diagrams**  
+
+#### **Defining Steps**  
+- `journey` → Defines a user journey diagram.  
+- `section` → Groups steps.  
+- Format:  
+  - `User: Task, State`  
+
+**Example:**  
+```mermaid
+journey  
+    title User Signup Journey  
+    section Signup  
+      User: Visit Website, 5  
+      User: Create Account, 4  
+    section Onboarding  
+      User: Verify Email, 3  
+      User: Complete Profile, 4  
+```
+
+#### **Customization**  
+- Numbers represent user experience ratings (1-5).  
+- Sections categorize different phases.  
+
+---
+
+### **10. Mind Maps**  
+
+#### **Structure and Formatting**  
+- `mindmap` → Defines a mind map.  
+- Indentation represents hierarchy.  
+- Nodes are written as `Root --> Child`.  
+
+**Example:**  
+```mermaid
+mindmap  
+    root((Main Topic))  
+        subtopic1(Subtopic 1)  
+            subsub1(Detail 1)  
+            subsub2(Detail 2)  
+        subtopic2(Subtopic 2)  
+```
+
+#### **Styling and Customization**  
+- Use `(( ))` for rounded nodes.  
+- Nodes can have multiple branches.  
+
+**Example:**  
+```mermaid
+mindmap  
+    root((Learning Path))  
+        Frontend  
+            HTML  
+            CSS  
+            JavaScript  
+        Backend  
+            Node.js  
+            Python  
+```
+
+---
+
+
+
+---
+---
+
+
 ## Mermaid Syntax
 
 Mermaid provides a simple, text-based way to generate diagrams. Below is a detailed syntax guide covering all its features, with examples for each diagram type.
