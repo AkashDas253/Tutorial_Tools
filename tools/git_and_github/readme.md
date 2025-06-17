@@ -1,7 +1,5 @@
 # Git and GitHub
 
-## Content
-
 - [Concepts](lessons/concepts/readme.md)
 - [Cheatsheet](lessons/cheatsheet/readme.md)
 - [Repository Management](lessons/repository/readme.md)

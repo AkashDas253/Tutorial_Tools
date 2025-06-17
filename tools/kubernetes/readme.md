@@ -1,0 +1,30 @@
+## Kubernetes
+
+### Sources
+- [Documentation](https://kubernetes.io/docs/home/)
+
+### Lessons
+- [Kubernetes Overview](lessons/kubernetes/readme.md)
+- [Architecture](lessons/architecture/readme.md)
+- [Core Concepts](lessons/core_concepts/readme.md)
+- [Configuration Management](lessons/configuration_management/readme.md)
+- [Storage](lessons/storage/readme.md)
+- [Networking](lessons/networking/readme.md)
+- [Service Discovery and Load Balancing](lessons/service_discovery_and_load_balancing/readme.md)
+- [Security](lessons/security/readme.md)
+- [Resource Management](lessons/resource_management/readme.md)
+- [Health Checks](lessons/health_checks/readme.md)
+- [Scaling](lessons/scaling/readme.md)
+- [Deployment Strategies](lessons/deployment_strategies/readme.md)
+- [Logging and Monitoring](lessons/logging_and_monitoring/readme.md)
+- [Custom Resources](lessons/custom_resources/readme.md)
+- [Package Management](lessons/package_management/readme.md)
+- [CLI Tools](lessons/cli_tools/readme.md)
+- [GUI Tools](lessons/gui_tools/readme.md)
+- [Extending Kubernetes](lessons/extending_kubernetes/readme.md)
+- [Multi-Cluster and Federation](lessons/multi_cluster_and_federation/readme.md)
+- [Backup and Restore](lessons/backup_and_restore/readme.md)
+- [CI/CD Integration](lessons/cicd_integration/readme.md)
+- [Service Mesh Integration](lessons/service_mesh_integration/readme.md)
+- [Policy and Governance](lessons/policy_and_governance/readme.md)
+- [Best Practices](lessons/best_practices/readme.md)

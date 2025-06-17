@@ -1,6 +1,5 @@
 # Docker
 
-## Content
 - [Cheatsheet](lessons/cheatsheet/readme.md)
 - [Basics](lessons/basics/readme.md)
 - [Concepts](lessons/concepts/readme.md)
