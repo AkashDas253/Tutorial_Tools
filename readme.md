@@ -65,3 +65,6 @@
   - [Mermaid (for diagrams)](tools/mermaid/readme.md)
   <!-- - PlantUML (for UML diagrams)
   - Graphviz (for graph visualization)  -->
+
+- Data Management
+  - Test Data Management: [Delphix](tools/delplix/readme.md)
