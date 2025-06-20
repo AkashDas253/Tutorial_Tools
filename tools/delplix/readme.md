@@ -25,3 +25,6 @@
 ### [Test Data Management (TDM)](lessons/test_data_management/readme.md)
 - [Data Masking](lessons/data_masking/readme.md)
 - [Data Subsetting](lessons/data_subsettimg/readme.md)
+
+### [How to?(Steps)](how_to/list/readme.md):
+- [Data ]
