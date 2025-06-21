@@ -1,0 +1,216 @@
+## TensorFlow Graph
+
+---
+
+### **1. TensorFlow and Graph Execution**
+
+TensorFlow uses computational graphs to define operations. In older versions (TensorFlow 1.x), graphs were explicitly defined and executed, but in TensorFlow 2.x, eager execution is enabled by default. However, you can still work with graphs when needed.
+
+#### **Graph Creation**
+
+In TensorFlow 2.x, graph execution is handled implicitly via eager execution, but you can explicitly use `tf.function` to create a graph.
+
+| Function                | Parameters                       | Description                                                                                                                                                         | Example                                                        |
+|-------------------------|----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------|
+| **`tf.function`**        | `input_signature=None, name=None` | Converts a Python function to a TensorFlow graph. <br> - `input_signature`: (Optional) Signature of the input tensors. <br> - `name`: Name of the function.        | `@tf.function`<br> `def add(x, y): return x + y`                |
+
+#### **Graph Execution**
+
+When using `tf.function`, TensorFlow optimizes the graph for efficient execution.
+
+```python
+@tf.function
+def add_fn(x, y):
+    return x + y
+
+result = add_fn(tf.constant(3), tf.constant(5))  # Graph execution
+```
+
+---
+
+### **2. Visualizing Data: Using `matplotlib` with TensorFlow**
+
+TensorFlow integrates well with libraries like `matplotlib` to plot data. Here's how you can visualize tensors.
+
+#### **Basic Plotting**
+
+| Function                        | Parameters                            | Description                                                                                                             | Example                                                              |
+|----------------------------------|---------------------------------------|-------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------|
+| **`matplotlib.pyplot.plot`**     | `x, y, **kwargs`                      | Plots a graph of `y` vs `x`. <br> - `x`: The input tensor or data points for the x-axis. <br> - `y`: The input tensor or data points for the y-axis. | `plt.plot(x_data, y_data)`                                             |
+| **`matplotlib.pyplot.scatter`**  | `x, y, **kwargs`                      | Creates a scatter plot of `y` vs `x`.                                                                                     | `plt.scatter(x_data, y_data)`                                          |
+| **`matplotlib.pyplot.hist`**     | `x, bins=10, **kwargs`                | Plots a histogram of tensor `x`. <br> - `bins`: Number of histogram bins.                                               | `plt.hist(tensor_data, bins=20)`                                      |
+
+Example using `matplotlib` to plot a simple tensor:
+
+```python
+import tensorflow as tf
+import matplotlib.pyplot as plt
+
+x = tf.linspace(-3.0, 3.0, 100)
+y = tf.sin(x)
+
+plt.plot(x.numpy(), y.numpy())  # Convert tensors to numpy arrays for plotting
+plt.title("Sine Wave")
+plt.xlabel("x")
+plt.ylabel("sin(x)")
+plt.show()
+```
+
+---
+
+### **3. TensorFlow with `TensorBoard` for Visualization**
+
+TensorBoard is a visualization tool that can track metrics like loss, accuracy, and gradients. It’s an essential tool for monitoring and debugging models.
+
+#### **Using TensorBoard**
+
+To use TensorBoard, you need to set up a `tf.summary` function to log data, and then visualize it in TensorBoard.
+
+| Function                        | Parameters                             | Description                                                                                                                | Example                                                           |
+|----------------------------------|----------------------------------------|----------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------|
+| **`tf.summary.scalar`**          | `name, data, step=None`                | Logs scalar values for visualization in TensorBoard. <br> - `name`: Name of the scalar. <br> - `data`: Value to log.       | `tf.summary.scalar("loss", loss_value, step=epoch)`               |
+| **`tf.summary.histogram`**       | `name, values, step=None`              | Logs a histogram of values. <br> - `name`: Name of the histogram. <br> - `values`: The values to visualize.               | `tf.summary.histogram("weights", model.weights, step=epoch)`      |
+| **`tf.summary.image`**           | `name, tensor, step=None, max_outputs=3`| Logs images for visualization in TensorBoard. <br> - `tensor`: Image tensor. <br> - `max_outputs`: Number of images to log. | `tf.summary.image("example_image", image_tensor, step=epoch)`     |
+
+#### **Starting TensorBoard**
+
+To visualize data, run the following command in your terminal:
+
+```bash
+tensorboard --logdir=logs
+```
+
+Use `logdir` to point to the directory where you saved your logs.
+
+---
+
+### **4. Visualizing Training Metrics**
+
+It’s common to visualize training progress, such as loss and accuracy, over epochs. This is often done via `matplotlib`.
+
+#### **Plotting Training Curves**
+
+```python
+# Example: Plotting loss over epochs
+import matplotlib.pyplot as plt
+
+epochs = [1, 2, 3, 4, 5]
+loss_values = [0.5, 0.4, 0.35, 0.3, 0.2]
+
+plt.plot(epochs, loss_values)
+plt.title("Training Loss")
+plt.xlabel("Epochs")
+plt.ylabel("Loss")
+plt.show()
+```
+
+You can use a similar approach for other metrics like accuracy.
+
+---
+
+### **5. Graph Visualizations using `networkx`**
+
+`networkx` allows visualizing computational graphs of your models, where each node corresponds to an operation or variable, and edges represent the flow of data.
+
+| Function                | Parameters                              | Description                                                                                          | Example                                           |
+|-------------------------|-----------------------------------------|------------------------------------------------------------------------------------------------------|---------------------------------------------------|
+| **`networkx.draw()`**    | `G, **kwargs`                           | Draws the graph using `matplotlib`. <br> - `G`: Graph to visualize.                                   | `networkx.draw(G)`                               |
+| **`networkx.erdos_renyi_graph()`** | `n, p`                               | Creates a random graph based on the Erdős-Rényi model. <br> - `n`: Number of nodes. <br> - `p`: Probability of edge creation. | `networkx.erdos_renyi_graph(10, 0.5)`             |
+
+#### **Example: Visualizing a Simple Neural Network Graph**
+
+```python
+import tensorflow as tf
+import networkx as nx
+import matplotlib.pyplot as plt
+
+# Example model
+model = tf.keras.Sequential([
+    tf.keras.layers.Dense(64, activation='relu', input_shape=(32,)),
+    tf.keras.layers.Dense(10, activation='softmax')
+])
+
+# Create the computational graph using the model
+G = nx.DiGraph()  # Directed graph
+
+# Add nodes for each layer and edges for data flow
+for layer in model.layers:
+    G.add_node(layer.name)
+    if layer.get_weights():
+        for w in layer.get_weights():
+            G.add_edge(layer.name, w)
+
+# Visualize the graph
+networkx.draw(G, with_labels=True, node_size=2000, node_color='lightblue', font_size=12)
+plt.show()
+```
+
+---
+
+### **6. Visualizing Data Distributions (Histograms)**
+
+Histograms are useful for visualizing distributions of data points in a tensor.
+
+```python
+import tensorflow as tf
+import matplotlib.pyplot as plt
+
+# Example: Create a tensor and plot a histogram
+data = tf.random.normal([1000])
+plt.hist(data.numpy(), bins=30)
+plt.title("Random Normal Distribution")
+plt.xlabel("Value")
+plt.ylabel("Frequency")
+plt.show()
+```
+
+---
+
+### **7. Visualizing Model Performance: ROC Curve**
+
+The ROC curve is often used to evaluate the classification performance.
+
+```python
+import tensorflow as tf
+import matplotlib.pyplot as plt
+from sklearn.metrics import roc_curve
+
+# Example: Get model predictions and true values
+y_true = [0, 1, 1, 0, 1, 0]
+y_pred = [0.1, 0.9, 0.8, 0.4, 0.7, 0.2]
+
+fpr, tpr, _ = roc_curve(y_true, y_pred)
+
+plt.plot(fpr, tpr, color='b', label='ROC curve')
+plt.plot([0, 1], [0, 1], color='gray', linestyle='--')
+plt.xlabel('False Positive Rate')
+plt.ylabel('True Positive Rate')
+plt.title('Receiver Operating Characteristic (ROC)')
+plt.show()
+```
+
+---
+
+### **8. Visualizing TensorFlow Training Progress with `Progress Bar`**
+
+Using a progress bar to track training is helpful for long-running training loops.
+
+| Function                     | Parameters                                                | Description                                                                                                    | Example                                                       |
+|------------------------------|-----------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------|
+| **`tqdm`**                    | `iterable, desc=None, total=None, **kwargs`               | Displays a smart progress bar for loops. <br> - `iterable`: The loop to track. <br> - `desc`: (Optional) Description. | `from tqdm import tqdm`<br>`for epoch in tqdm(range(10)):`       |
+
+#### Example with TensorFlow:
+
+```python
+from tqdm import tqdm
+import tensorflow as tf
+
+epochs = 5
+for epoch in tqdm(range(epochs), desc="Training Progress"):
+    # Your training loop here
+    pass
+```
+
+---
+
+This overview introduces various methods for visualizing graphs, training progress, and data in TensorFlow. It combines the use of TensorFlow operations, `matplotlib`, TensorBoard, and advanced libraries like `networkx` for effective visualizations in machine learning workflows.

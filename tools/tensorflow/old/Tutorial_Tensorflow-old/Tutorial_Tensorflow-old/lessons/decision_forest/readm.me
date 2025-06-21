@@ -1,0 +1,178 @@
+## **TensorFlow Decision Forests (TF-DF)**
+
+**TensorFlow Decision Forests (TF-DF)** is a library built by Google that integrates decision forests (such as **Random Forests** and **Gradient Boosted Trees**) into the TensorFlow ecosystem. It allows users to leverage decision trees for both classification and regression tasks, and is particularly useful for tasks where traditional deep learning models might not be the best choice, like structured/tabular data.
+
+TF-DF is designed to be highly scalable and is compatible with TensorFlow, making it easy to train decision forests alongside other TensorFlow models. It is especially helpful when working with decision tree-based models, which are often interpretable and perform well on a variety of tasks.
+
+---
+
+### **Key Features of TensorFlow Decision Forests**
+
+1. **Easy Integration with TensorFlow**:
+   - TensorFlow Decision Forests is designed to be a seamless addition to the TensorFlow ecosystem, allowing you to use models like decision trees alongside neural networks.
+   
+2. **Tree-based Models**:
+   - Includes **Random Forests** and **Gradient Boosted Trees (GBTs)** for both classification and regression tasks.
+   
+3. **Model Interpretability**:
+   - Tree-based models are more interpretable than many other machine learning models, making it easier to understand how the model arrives at predictions.
+
+4. **Scalability**:
+   - TF-DF is optimized for training on large datasets, and it leverages the parallel processing power of modern CPUs and GPUs for scalability.
+   
+5. **Support for TensorFlow and Keras**:
+   - Models from TF-DF can be used with TensorFlow's high-level **Keras API** for training and evaluation.
+   
+6. **Multiclass and Multilabel Classification**:
+   - TF-DF supports both binary and multiclass classification tasks, as well as multilabel classification where each sample may belong to multiple classes.
+
+---
+
+### **Core Components**
+
+| **Component**         | **Description**                                                                                                                                                         |
+|-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **`tfdf.keras.Model`** | The main class to use for training decision forests in TensorFlow. It provides an easy-to-use interface for building and training tree-based models.                        |
+| **`RandomForestModel`** | A model based on the Random Forest algorithm. It builds multiple decision trees in parallel and combines their predictions.                                               |
+| **`GradientBoostedTreesModel`** | A model based on the Gradient Boosted Trees algorithm, which sequentially builds trees that correct the errors made by previous trees in the sequence.                   |
+| **`Dataset`**          | A TensorFlow Dataset (`tf.data.Dataset`) for handling training data, typically used for feeding input features and labels.                                                |
+
+---
+
+### **Supported Models in TensorFlow Decision Forests**
+
+1. **Random Forest Classifier/Regressor**:
+   - A **Random Forest** is an ensemble method that creates multiple decision trees and combines their results to improve performance.
+   
+2. **Gradient Boosted Trees (GBT)**:
+   - **Gradient Boosted Trees** are built sequentially, with each new tree attempting to correct the errors made by the previous trees.
+
+---
+
+### **Installation**
+
+```bash
+pip install tensorflow-decision-forests
+```
+
+Once installed, you can start using TF-DF to train and evaluate decision forest models.
+
+---
+
+### **Basic Workflow in TensorFlow Decision Forests**
+
+#### **1. Import Required Libraries**
+
+```python
+import tensorflow_decision_forests as tfdf
+import tensorflow as tf
+```
+
+#### **2. Load and Prepare the Data**
+
+TF-DF works with `pandas` DataFrames or `tf.data.Dataset` to handle the dataset. Here's how you can load a dataset and prepare it.
+
+```python
+# Load dataset using Pandas
+import pandas as pd
+
+# Example dataset (e.g., a classification task)
+df = pd.read_csv("your_dataset.csv")
+
+# Split dataset into features and labels
+features = df.drop("target", axis=1)
+labels = df["target"]
+
+# Convert DataFrame to TensorFlow Dataset
+dataset = tfdf.keras.pd_dataframe_to_tf_dataset(df, task=tfdf.keras.Task.CLASSIFICATION)
+```
+
+#### **3. Train a Random Forest Model**
+
+```python
+# Train a Random Forest model
+model = tfdf.keras.RandomForestModel(task=tfdf.keras.Task.CLASSIFICATION)
+model.fit(dataset)
+```
+
+#### **4. Evaluate the Model**
+
+After training, you can evaluate the model on a test set or using cross-validation:
+
+```python
+# Evaluate model on test dataset
+test_df = pd.read_csv("your_test_data.csv")
+test_dataset = tfdf.keras.pd_dataframe_to_tf_dataset(test_df, task=tfdf.keras.Task.CLASSIFICATION)
+
+# Evaluate the trained model
+model.evaluate(test_dataset)
+```
+
+#### **5. Make Predictions**
+
+You can also use the trained model to make predictions on new data:
+
+```python
+# Making predictions on new data
+predictions = model.predict(test_dataset)
+
+for prediction in predictions:
+    print(prediction)
+```
+
+---
+
+### **Model Interpretation**
+
+- **Feature Importance**: Decision trees, including Random Forests and Gradient Boosted Trees, provide interpretable models, and you can inspect feature importance to understand which features are contributing the most to the model's predictions.
+  
+```python
+# Get feature importances
+importances = model.make_inspector().feature_importances()
+
+# Print feature importance
+for feature, importance in zip(df.columns, importances):
+    print(f"{feature}: {importance}")
+```
+
+- **Model Visualization**: You can visualize decision trees in TF-DF. It provides a way to extract and visualize individual trees within a random forest or gradient boosted tree model.
+
+```python
+# Inspect and print out decision trees
+inspector = model.make_inspector()
+
+# Print out one of the trees
+tree = inspector.extract_decision_tree(0)
+print(tree)
+```
+
+---
+
+### **Parameters for Training Models**
+
+| **Parameter**           | **Description**                                                                                                                                      | **Example**                                                                                     |
+|-------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------|
+| `task`                  | The task type: either `tfdf.keras.Task.CLASSIFICATION` or `tfdf.keras.Task.REGRESSION`.                                                             | `task=tfdf.keras.Task.CLASSIFICATION`                                                            |
+| `n_trees`               | The number of trees to use in the forest. Typically, higher values lead to more accurate models, but also increase computational cost.                | `n_trees=100`                                                                                   |
+| `max_depth`             | Maximum depth of each individual tree. Limiting the depth prevents overfitting.                                                                   | `max_depth=10`                                                                                 |
+| `min_examples`          | The minimum number of samples needed in a leaf node. Determines the level of granularity in the decision tree.                                          | `min_examples=5`                                                                                |
+| `learning_rate`         | The learning rate used for Gradient Boosting Trees, which controls how much each new tree corrects errors.                                              | `learning_rate=0.1`                                                                              |
+| `boosting_type`         | The type of boosting used in Gradient Boosted Trees. It can be `gbdt` (Gradient Boosting Decision Trees) or `dart` (Dropouts meet Multiple Additive Regression Trees). | `boosting_type="dart"`                                                                       |
+
+---
+
+### **Summary of Use Cases for TensorFlow Decision Forests**
+
+| **Use Case**                    | **Description**                                                                                                                                                     |
+|----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Classification**               | Suitable for classification tasks where you want to predict a category label (binary or multiclass). For example, predicting whether a customer will churn.          |
+| **Regression**                   | Useful for regression tasks where you predict a continuous value, such as predicting house prices or the temperature in a specific location.                       |
+| **Handling Categorical Data**    | TF-DF is capable of handling categorical variables by encoding them properly (via one-hot encoding, embeddings, etc.), which is useful for tasks involving structured data. |
+| **Model Interpretability**       | Decision forests provide interpretability, allowing users to understand which features are contributing to predictions, and to visualize the decision trees.            |
+
+---
+
+### **Conclusion**
+
+TensorFlow Decision Forests (TF-DF) brings decision tree algorithms (like Random Forests and Gradient Boosted Trees) to the TensorFlow ecosystem. It is particularly well-suited for tabular data and is useful for tasks that require a model that is both interpretable and scalable. With easy integration into TensorFlow, TF-DF makes it straightforward to build, train, evaluate, and deploy tree-based models while also providing tools for model interpretation.
+
