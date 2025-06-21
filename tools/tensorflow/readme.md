@@ -40,4 +40,4 @@
 
 - [Common Use Cases](lessons/common_use_cases/readme.md)
 
-- [Key "How-To" List](lessons/key_how_to_list/readme.md)
+### [How-To](how_to/list/readme.md)
