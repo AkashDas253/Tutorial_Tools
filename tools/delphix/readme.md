@@ -23,8 +23,9 @@
 - [Performance Testing and Benchmarking](lessons/performance_testing_and_benchmarking/readme.md)
 
 ### [Test Data Management (TDM)](lessons/test_data_management/readme.md)
-- [Data Masking](lessons/data_masking/readme.md)
+- [Data Masking](lessons/data_masking/readme.md): [Types Supported](lessons/mask_types_supported/readme.md)
 - [Data Subsetting](lessons/data_subsettimg/readme.md)
 
 ### [How to?(Steps)](how_to/list/readme.md):
-- [Data ]
+- [Basic Data Masking](how_to/basic_data_masking_steps/readme.md)
+- [All Data Masking](how_to/all_data_masking_steps/readme.md)
