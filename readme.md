@@ -68,3 +68,5 @@
 
 - Data Management
   - Test Data Management: [Delphix](tools/delplix/readme.md)
+
+- Hardware Description Language (HDL): [Verilog](tools/verilog/readme.md)
