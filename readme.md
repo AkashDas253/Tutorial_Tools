@@ -1,7 +1,5 @@
 # Tools 
 
-## Content
-
 - Version Control Systems
   - [Git and GitHub](tools/git_and_github/readme.md)
   <!-- - Subversion (SVN)
@@ -70,3 +68,6 @@
   - Test Data Management: [Delphix](tools/delplix/readme.md)
 
 - Hardware Description Language (HDL): [Verilog](tools/verilog/readme.md)
+
+
+- [Tesseract](tools/tesseract/readme.md)
